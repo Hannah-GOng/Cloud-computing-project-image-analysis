@@ -33,13 +33,10 @@ def recognize_celebrities():
         for url in celebrity['Urls']:
             print ('   ' + url)
         print
-    return len(response['CelebrityFaces'])
+        
+        celeb_count=len(response['CelebrityFaces'])
+        print("Celebrities detected: " + str(celeb_count)
 
-def main():
-    photo='moviestars.jpg'
-
-    celeb_count=recognize_celebrities(photo)
-    print("Celebrities detected: " + str(celeb_count)
     
 if __name__ == "__main__":
-    main()
+    application.run()
