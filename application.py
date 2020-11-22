@@ -8,7 +8,7 @@ app.config['UPLOAD_FOLDER'] = 'upload/'
 
 @app.route('/')
 def hello_world():
-   return 'Add /upload to IP address to begin'
+   return 'Add /upload_page to IP address to begin'
 
 @app.route('/upload_page')
 def upload_file():
