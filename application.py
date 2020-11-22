@@ -6,6 +6,9 @@ import json
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'upload/'
 
+@app.route('/')
+def hello_world():
+   return 'Add /upload to IP address to begin'
 
 @app.route('/upload_page')
 def upload_file():
