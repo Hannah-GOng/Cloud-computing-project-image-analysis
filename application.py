@@ -2,15 +2,18 @@ from flask import Flask, render_template, request
 import boto3
 import json
 
-application = Flask(__name__)
 
-@application.route('/')
-def home():
-    return "Hello World!"
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'upload/'
+
+
+@app.route('/upload_page')
+def upload_file():
+   return render_template('upload_page.html')
 
 # detect the celebrities
-@application.route('/upload', methods=['POST', 'GET'])
-def detect_celebrity():
+@app.route('/uploader', methods = ['GET', 'POST'])
+def uploader():
     if request.method == 'POST':
         file = request.files['file']
         bucket = 'cloud-computing-706-image-analysis'
@@ -20,22 +23,16 @@ def detect_celebrity():
 
         # upload the file as on object using put_object
         s3_resource.Bucket(bucket).put_object(Key=file.filename, Body=file)
-    
-        # Celebrity Recognition by AWS Rekognition
-        client=boto3.client('rekognition')
-        response = client.recognize_celebrities(Image= {'S3Object': {'Bucket': bucket, 'Name': file.filename}})
-
-        print('Detected faces for ' + file)    
-        for celebrity in response['CelebrityFaces']:
-            print ('Name: ' + celebrity['Name'])
-            print ('Id: ' + celebrity['Id'])
-            print ('Position:')
-            print ('   Left: ' + '{:.2f}'.format(celebrity['Face']['BoundingBox']['Height']))
-            print ('   Top: ' + '{:.2f}'.format(celebrity['Face']['BoundingBox']['Top']))
-            print ('Info')
         
-        print("Celebrities detected: " + str(len(response['CelebrityFaces'])))
-
+         # Celebrity Recognition by AWS Rekognition
+        client=boto3.client('rekognition', region_name = 'us-east-2')
+        response = client.recognize_celebrities(Image = {'S3Object': {'Bucket': bucket, 'Name': file.filename}})
+        
+        for celebrity in response['CelebrityFaces']:
+            name = celebrity['Name']
+            Id = celebrity['Id']
+            
+        return name
     
 if __name__ == "__main__":
-    application.run()
+    app.run(port = 8080, host = '0.0.0.0', debug = True)
