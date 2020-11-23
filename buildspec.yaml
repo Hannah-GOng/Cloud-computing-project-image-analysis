@@ -6,11 +6,10 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - echo install
+      - make setup
       - make install
   build:
     commands:
-      - echo build
       - make lint
       - make test
   post_build:
