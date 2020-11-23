@@ -1,3 +1,4 @@
+
 version: 0.2
 
 phases:
@@ -5,7 +6,14 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
+      - echo install
       - make install
   build:
     commands:
+      - echo build
       - make lint
+      - make test
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      

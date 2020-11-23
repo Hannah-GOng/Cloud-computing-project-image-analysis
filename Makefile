@@ -1,9 +1,13 @@
 setup:
-		virtualenv --python $(which python3) ~/.Cloud-computing
+	python3 -m venv ~/.environment/Cloud-computing-project-image-analysis
 
 install:
-		pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip install --upgrade pip &&\
+	pip install -r requirements.txt
 
 lint:
-		pylint --disable=R,C application.py
+	pylint --disable=R,C application.py
+
+test:
+	python -m pytest -vv test_application.py
+
