@@ -33,7 +33,6 @@ def uploader():
         
         for celebrity in response['CelebrityFaces']:
             name = celebrity['Name']
-            Id = celebrity['Id']
             
         return name
     
