@@ -1,6 +1,5 @@
 setup:
-	python3 -m venv ~/.environment/Cloud-computing-project-image-analysis
-	python3 -m source ~/.Cloud-computing-project-image-analysis/bin/activate
+	python3 -m venv ~/.virt
 
 install:
 	pip install --upgrade pip &&\
@@ -12,3 +11,4 @@ lint:
 test:
 	python -m pytest -vv test_application.py
 
+all: setup install lint test
