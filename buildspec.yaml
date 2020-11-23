@@ -10,7 +10,6 @@ phases:
       - make install
   build:
     commands:
-      - make lint
       - make test
   post_build:
     commands:
