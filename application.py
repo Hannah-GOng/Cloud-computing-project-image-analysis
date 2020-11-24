@@ -3,19 +3,19 @@ import boto3
 import json
 
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'upload/'
+application = Flask(__name__)
+application.config['UPLOAD_FOLDER'] = 'upload/'
 
-@app.route('/')
+@application.route('/')
 def hello_world():
    return render_template('index.html')
 
-@app.route('/upload_page',  methods = ['GET', 'POST'])
+@application.route('/upload_page',  methods = ['GET', 'POST'])
 def upload_page():
    return render_template('upload_page.html')
 
 # detect the celebrities
-@app.route('/uploader', methods = ['GET', 'POST'])
+@application.route('/uploader', methods = ['GET', 'POST'])
 def uploader():
     if request.method == 'POST':
         file = request.files['file']
@@ -37,4 +37,5 @@ def uploader():
         return render_template('result_page.html', tx=name)
     
 if __name__ == "__main__":
-    app.run(port = 8080, host = '0.0.0.0', debug = True)
+    application.debug = True
+    application.run(port = 8080, host = '0.0.0.0')

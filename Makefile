@@ -8,4 +8,4 @@ install:
 lint:
 	pylint --disable=R,C application.py
 
-all: setup install test
+all: setup install lint

@@ -6,9 +6,11 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - make setup
       - make install
   build:
     commands:
       - make lint
-      
+  
+  artifacts:
+    files:
+        - '**/*'
