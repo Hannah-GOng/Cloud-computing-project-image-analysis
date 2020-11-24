@@ -6,6 +6,6 @@ install:
 	pip install -r requirements.txt
 
 lint:
-	pylint --disable=R,C application.py
+	python -m unittest discover -s ./
 
 all: setup install lint
