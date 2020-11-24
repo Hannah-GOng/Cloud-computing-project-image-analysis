@@ -13,4 +13,5 @@ The app is developed using AWS Cloud9 IDE using Python, JavaScript, HTML, and CS
 [<img src="workflow.png" width="500"/>](workflow.png)
 
 ## Demo
-https://youtu.be/mVp6xKKtoHA
+
+https://youtu.be/kUOrUdU2TYw
