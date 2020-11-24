@@ -10,7 +10,7 @@ Link to the web app: cele-env.eba-cwnyrgph.us-east-2.elasticbeanstalk.com
 
 The app is developed using AWS Cloud9 IDE using Python, JavaScript, HTML, and CSS. Flask was used as a framework for the backend. The app was deployed through Elastic Beanstalk and is build and tested through AWS CodePipeline for continous delivery and continuous integration on the cloud.
 
-![Workflow](workflow.png){ width=50% }
+[<img src="workflow.png" width="700"/>](workflow.png)
 
 ## Demo
 
