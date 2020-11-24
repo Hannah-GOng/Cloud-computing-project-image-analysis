@@ -1,6 +1,4 @@
 boto3
-pylint
-pytest
 awsebcli
 click==6.7
 Flask==1.0.2
