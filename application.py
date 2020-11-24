@@ -11,7 +11,7 @@ application.config['UPLOAD_FOLDER'] = 'upload/'
 def hello_world():
    return render_template('index.html')
    
-@app.route('/index')
+@application.route('/index')
 def index():
    return render_template('index.html')
 
