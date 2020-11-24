@@ -4,12 +4,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.6
+      python: 3.8
     commands:
-      - make install
+      - pip install --upgrade pip &&\
+	    - pip install -r requirements.txt
   build:
     commands:
-      - make lint
+      - python -m unittest discover -s ./
   
   post_build:
     commands:
