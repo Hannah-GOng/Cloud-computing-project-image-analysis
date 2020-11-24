@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, url_for, request, redirect, render_template
 import boto3
 import json
 
@@ -8,10 +8,10 @@ app.config['UPLOAD_FOLDER'] = 'upload/'
 
 @app.route('/')
 def hello_world():
-   return 'Add /upload_page to IP address to begin!'
+   return render_template('index.html')
 
-@app.route('/upload_page')
-def upload_file():
+@app.route('/upload_page',  methods = ['GET', 'POST'])
+def upload_page():
    return render_template('upload_page.html')
 
 # detect the celebrities
