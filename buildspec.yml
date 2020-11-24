@@ -4,12 +4,16 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.8
+      python: 3.6
     commands:
       - make install
   build:
     commands:
       - make lint
+  
+  post_build:
+    commands:
+      - echo Build completed on 'date'
   
   artifacts:
     files:
