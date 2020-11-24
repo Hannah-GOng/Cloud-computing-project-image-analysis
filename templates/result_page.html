@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Elements - Projection by TEMPLATED</title>
+		<title>It's {{tx}}!</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="static/css/main.css" />
@@ -16,8 +16,9 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="https://templated.co" class="logo"><strong>Projection</strong> by TEMPLATED</a>
+					<a href="{{ url_for('index') }}" class="logo"><strong>CelebrityRecog</strong></a>
 					<nav id="nav">
+						<a href="https://github.com/Hannah-GOng/Cloud-computing-project-image-analysis" class="icon fa-github"><span class="label">Github</span></a>
 						<a href="{{ url_for('upload_page') }}">Upload</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -30,6 +31,15 @@
 					<header class="align-center">
 						<h2>{{tx}}</h2>
 					</header>
+					<hr class="major" />
+					<div class="row">
+						<div class="3u 12u$(small)">
+							<ul class="actions vertical">
+								<h3><a href={{wiki}} style="color:blue;">Wiki/IMDB</a></h3>
+								<li><a href="{{ url_for('upload_page') }}" class="button special">Back</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</section>
 
@@ -37,7 +47,7 @@
 			<footer id="footer">
 				<div class="inner">
 					<div class="copyright">
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+						&copy; CelebrityRecog. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
 					</div>
 
 				</div>
@@ -49,7 +59,7 @@
 			<script src="static/js/skel.min.js"></script>
 			<script src="static/js/util.js"></script>
 			<script src="static/js/main.js"></script>
-			<script src="static/js/display_image.js"></script>
+			
 
 	</body>
 </html>

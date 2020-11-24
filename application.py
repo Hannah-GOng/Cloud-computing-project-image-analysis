@@ -1,4 +1,5 @@
 from flask import Flask, url_for, request, redirect, render_template
+import base64
 import boto3
 import json
 
@@ -8,6 +9,10 @@ app.config['UPLOAD_FOLDER'] = 'upload/'
 
 @app.route('/')
 def hello_world():
+   return render_template('index.html')
+   
+@app.route('/index')
+def index():
    return render_template('index.html')
 
 @app.route('/upload_page',  methods = ['GET', 'POST'])
@@ -33,8 +38,12 @@ def uploader():
         
         for celebrity in response['CelebrityFaces']:
             name = celebrity['Name']
-            
-        return render_template('result_page.html', tx=name)
+            link = "#"
+            if len(celebrity['Urls']) > 0:
+                link = celebrity['Urls'][0]
+                if not link.startswith('https://'):
+                    link = 'https://' + link
+        return render_template('result_page.html', tx=name, wiki=link)
     
 if __name__ == "__main__":
     app.run(port = 8080, host = '0.0.0.0', debug = True)
