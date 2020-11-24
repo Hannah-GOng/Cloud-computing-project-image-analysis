@@ -1,4 +1,4 @@
-# Cloud Computing Project: Detect Celebrity From User-uploeaded Image
+# Cloud Computing Project: Detect Celebrity From User-Upload Image
 
 ## Introduction
 
